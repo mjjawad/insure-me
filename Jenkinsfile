@@ -28,6 +28,7 @@ stages{
       steps{
             withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
            sh 'docker login -u jawadjk786 -p ${dockerHubPwd}'
+            }
            sh 'docker push jawadjk786/insure-me-app:1.0 .'
        
            }
