@@ -14,6 +14,10 @@ stages{
            sh 'mvn package'
           }
        }  
-
+   stage('Publish Html Reports'){
+      steps {
+           publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/insureme-project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])       
+            }
+         }
     } 
 }
