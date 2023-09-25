@@ -26,10 +26,10 @@ stages{
         }  
    stage('Docker image push'){
       steps{
-            withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'docker_password', usernameVariable: 'docker_user')]) {
-               {
+           withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'docker_password', usernameVariable: 'docker_user')]) {
+               
           sh 'docker login -u ${docker_user} -p ${docker_password}'
-            }
+ }
            sh 'docker push jawadjk786/insure-me-app:1.0'
             }
         }
