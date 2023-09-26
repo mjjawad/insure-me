@@ -33,5 +33,6 @@ stages{
            sh 'docker push jawadjk786/insure-me-app:1.0'
             }
         }
-    } 
+stage ('Deploy application to the production server')  
+   } 
 }
