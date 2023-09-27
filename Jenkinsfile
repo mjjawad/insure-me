@@ -33,6 +33,10 @@ stages{
            sh 'docker push jawadjk786/insure-me-app:1.0'
             }
         }
-stage ('Deploy application to the production server')  
+stage ('Deploy application to the production server') {
+  steps{
+   ansiblePlaybook credentialsId: 'ubuntu-ssh', disableHostKeyChecking: true, installation: 'ansible', playbook: 'deploy.yml'
+  }
+} 
    } 
 }
