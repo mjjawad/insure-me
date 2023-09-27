@@ -21,7 +21,7 @@ stages{
          }
    stage('Create Docker Image Of App'){
       steps{
-           sh 'docker build -t jawadjk786/insure-me-app:1.0 .'
+           sh 'docker build -t jawadjk786/insure-me-app:2.0 .'
            }
         }  
    stage('Docker image push'){
@@ -30,7 +30,7 @@ stages{
                
           sh 'docker login -u ${docker_user} -p ${docker_password}'
  }
-           sh 'docker push jawadjk786/insure-me-app:1.0'
+           sh 'docker push jawadjk786/insure-me-app:2.0'
             }
         }
 stage ('Deploy application to the production server') {
