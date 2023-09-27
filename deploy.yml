@@ -5,6 +5,8 @@
   - name: Install Docker
     apt: name=docker.io state=present
   - name: Start Docker Service
-    command: sudo systemctl start docker   
+    command: sudo systemctl start docker
+  - name: remove container
+    command: docker rm $(docker ps -aq)
   - name: Deploy your application and run as container
-    command: docker run -itd -p 8080:8080 jawadjk786/insure-me-app:1.0
+    command: docker run -d -p 8080:8080 jawadjk786/insure-me-app:1.0
