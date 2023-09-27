@@ -6,8 +6,6 @@
     apt: name=docker.io state=present
   - name: Start Docker Service
     command: sudo systemctl start docker
-  - name: remove container
-    command: docker rm $(docker ps -aq)
   - name: docker run user
     shell: usermod -a -G docker ubuntu
   - name: check the docker version
